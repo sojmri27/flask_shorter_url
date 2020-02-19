@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shorter Url</title>
+    <script>
+        function validateForm() {
+          var x = document.forms["urlForm"]["url"].value;
+          if (x == "") {
+            alert("Url must be filled out");
+            return false;
+          }
+        }
+        </script>
+</head>
+<body>
+    <form method='post' onsubmit="return validateForm()" name="urlForm">
+        Url: <input type='text' name='url' />
+        <button type='submit'>Submit</button>
+    </form>
+    {% if newUrl%}
+        <div style="font-weight:bold;">Shorter Url: <a style="color:red;font-weight:bold;" href="http://127.0.0.1:5000/{{newUrl}}" target="_blank">http://127.0.0.1:5000/{{newUrl}}</a></div>
+    {%endif%}
+</body>
+</html>
